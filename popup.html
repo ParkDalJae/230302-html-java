@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+    }
+    #popup{
+      position: fixed;
+      
+      /* display: flex;
+      align-items: flex-end;
+      justify-content: flex-end; */
+      width:300px;
+      height: 300px;
+      background-color: aquamarine;
+      top: 100px;
+      left: 100px;
+    }
+    #popup > button{
+      
+      width: 100px;
+      height: 100px;
+    }
+
+    #root{
+      width: 100vw;
+      height: 300vh;
+      background-color: #ccc;
+    }
+
+    #root > section{
+      width: 100%;
+      height: 100vh;
+      border: 1px black solid;
+    }
+
+    #root > section:nth-child(1){      background-color: rgb(0, 255, 179);    }
+    #root > section:nth-child(2){      background-color: rgb(101, 101, 187);    }
+    #root > section:nth-child(3){      background-color: rgb(112, 196, 252);    }
+    
+  </style>
+</head>
+<body>
+  <aside id="popup">
+    <button>close!</button>
+    <h1>박달재는 미남이다.</h1>
+  </aside>
+  <div id="root">
+    <section></section>
+    <section></section>
+    <section></section>
+  </div>
+  <script>
+    const popup = document.getElementById('popup')
+    const popDiv = {}
+    const root = document.getElementById('root')
+    const rootDiv = {
+      
+    }
+    const closeButton = popup.children[0]
+    console.dir(popup)
+    console.dir(closeButton)
+
+    closeButton.addEventListener('click',function(){
+      closeButton.parentElement.style.display = 'none';
+      
+      root.children[0].innerHTML = '<p>박달재는 미인이다</p>'
+      
+      let pTag = document.createElement('p')
+      pTag.innerText = '박달재는 추남이다'
+      root.children[0].appendChild(pTag)
+    })
+
+    root.children[root.children.length-1].addEventListener('click',function(){
+      popup.style.display='inherit'
+    })
+
+  </script>
+</body>
+</html>

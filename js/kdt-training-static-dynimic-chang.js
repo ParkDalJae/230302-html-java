@@ -68,7 +68,6 @@ rightSec.children[0].style.padding = '0px'
 
 //#root > main > section > ul > li
 
-let tictok = true;
 for(let ind=0; ind<5;ind++){
   let makeLi=document.createElement('li')
   makeLi.innerText = `items-${ind}`;
@@ -79,26 +78,26 @@ for(let ind=0; ind<5;ind++){
   // rightSec.children[0].appendChild(makeLi)
 }
 // moveAside.addEventListener("click",function(){
-//   if(tictok===true){
+  //   if(tictok===true){
 //     for(let ind=0; ind<5;ind++){
-//       let makeLi=document.createElement('li')
-//       makeLi.innerText = `items-${ind}`;
-//       makeLi.style.height = '50px';
-//       makeLi.style.backgroundColor = '#fff';
-//       makeLi.style.border = '1px black solid';
+  //       let makeLi=document.createElement('li')
+  //       makeLi.innerText = `items-${ind}`;
+  //       makeLi.style.height = '50px';
+  //       makeLi.style.backgroundColor = '#fff';
+  //       makeLi.style.border = '1px black solid';
 //       rightSec.children[0].appendChild(makeLi)
 //     }
 //     tictok=false
 //   } else {
-//     for(let ind=0; ind<5;ind++){
-//       let makeLi=document.createElement('li')
+  //     for(let ind=0; ind<5;ind++){
+    //       let makeLi=document.createElement('li')
 //       makeLi.innerText = `items-${ind}`;
 //       makeLi.style.height = '50px';
 //       makeLi.style.backgroundColor = '#fff';
 //       makeLi.style.border = '1px black solid';
 //       leftSec.children[0].appendChild(makeLi)
 //     }
-    
+
 //     tictok=true
 //   }
 //   })                       
@@ -142,3 +141,24 @@ for (let key in leftSec.children[0]){
 }
 
 console.dir(leftLi)
+
+console.log(leftSec.children[0].children.length)
+console.log(leftSec.children[0])
+console.log(rightSec.children[0])
+let tictok = true;
+moveAside.addEventListener("click",function(){
+  if(tictok===true){
+    for(let i=0;i<leftSec.children[0].children.length;i++){
+      function move(){
+        let leLi = leftSec.children[0].children[i]
+        let raLi = rightSec.children[0]
+        raLi.appendChild(leLi)
+        return raLi
+      }
+    }
+    tictok=false
+  } else {
+    
+    tictok=true
+  }
+})                       
